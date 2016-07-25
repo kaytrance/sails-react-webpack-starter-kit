@@ -2,6 +2,20 @@ var path = require("path");
 var project_dir = __dirname + '/../../';
 var webpack = require("webpack");
 
+var prod = process.env.NODE_ENV && process.env.NODE_ENV === 'production';
+
+var pluggins = [
+    new webpack.optimize.DedupePlugin(),
+    new webpack.optimize.OccurenceOrderPlugin()
+];
+
+if (prod)
+    pluggins.push(new webpack.optimize.UglifyJsPlugin({
+        mangle: true,
+        sourcemap: false,
+        minimize: true,
+    }));
+
 module.exports = function(grunt) {
     grunt.config.set('webpack', {
         dev: {
@@ -25,23 +39,32 @@ module.exports = function(grunt) {
             },
             output: {
                 path: ".tmp/public/js",
-                filename: "app.min.js"
+                filename: prod ? "app.min.js" : "app.js"
             },
-            plugins: [
-                new webpack.optimize.DedupePlugin(),
-                new webpack.optimize.OccurenceOrderPlugin(),
-                // new webpack.optimize.UglifyJsPlugin({
-                //     mangle: true,
-                //     sourcemap: false
-                // }),
-            ],
-    
+            plugins: pluggins,
+
             hot: false,
             inline: false,
             keepalive: false,
-            stats: false,
             watch: false,
+            progress: false,
 
+            stats: {
+                colors: true,
+                hash: false,
+                version: false,
+                timings: true,
+                assets: true,
+                chunks: true,
+                modules: true,
+                reasons: false,
+                children: false,
+                source: false,
+                errors: false,
+                errorDetails: false,
+                warnings: false,
+                publicPath: false
+            }
         }
     });
 

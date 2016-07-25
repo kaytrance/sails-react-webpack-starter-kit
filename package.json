@@ -35,7 +35,8 @@
     "webpack-dev-server": "^1.14.1"
   },
   "scripts": {
-    "dev": "clear && sails lift --verbose"
+    "dev": "clear && sails lift --verbose",
+    "prod": "clear && sails lift --prod"
   },
   "main": "app.js",
   "repository": {

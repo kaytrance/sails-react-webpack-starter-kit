@@ -20,5 +20,12 @@ module.exports = {
   // models: {
   //   connection: 'someMongodbServer'
   // }
+  
+  /**
+   * Here we increase hoot timeout for grunt so that it won't cry on slow machines
+   */
+  grunt: {
+    _hookTimeout: 80000
+  }
 
 };
