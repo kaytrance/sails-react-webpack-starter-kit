@@ -22,6 +22,7 @@
     "grunt-contrib-uglify": "0.7.0",
     "grunt-contrib-watch": "0.5.3",
     "grunt-sails-linker": "~0.10.1",
+    "grunt-sass": "^1.2.1",
     "grunt-sync": "0.2.4",
     "grunt-webpack": "^1.0.11",
     "include-all": "~0.1.6",
