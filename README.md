@@ -12,6 +12,8 @@ In order to modify grunt task that bundles **React** code look at `tasks/config/
 
 ### Installation
 
+- clone by `git clone https://github.com/kaytrance/sails-react-webpack-starter-kit.git`
+- cd to cloned folder by `cd sails-react-webpack-starter-kit`
 - run `npm install` to scaffold up dependencies
 - run `npm run dev` to start Sails server in `development` mode
 - run `npm run prod` to start Sails server in `production` mode
